@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+function usage() {
+    echo 'usage: rmvn [options][args]'
+    echo 'Options: '
+    echo ' -g,--groupId pom.xml文件的配置的  <groupId>com.raycloud</groupId>'
+    echo ' -a,--artifactId pom.xml文件的配置的  <artifactId>raycloud-springboot-demo</artifactId>'
+    echo ' -v,--version pom.xml文件的配置版本  <version>1.0-SNAPSHOT</version> default(1.0-SNAPSHOT) 默认是1.0-SNAPSHOT'
+}
+
+groupId=
+artifactId=
+archetypeVersion="1.0-SNAPSHOT"
+while [[ $# -gt 0 ]]
+do
+    key="$1"
+    case ${key} in
+        -h|--help)
+        usage
+        exit 0
+        ;;
+        --groupId|-g)
+        groupId="$2"
+        shift # past argument
+        shift # past value
+        ;;
+        --artifactId|-a)
+        artifactId="$2"
+        shift # past argument
+        shift # past value
+        ;;
+         --version|-v)
+        archetypeVersion="$2"
+        shift # past argument
+        shift # past value
+        ;;
+         *)
+         echo unknown args
+         shift # past argument
+    esac
+done
+
+if [[ -z ${groupId} ]]; then
+    usage
+    exit 0
+fi
+
+if [[ -z ${artifactId} ]]; then
+    usage
+     exit 0
+fi
+
+if [[ -z ${archetypeVersion} ]]; then
+    usage
+     exit 0
+fi
+
+mvn -DgroupId=${groupId} \
+    -DartifactId=${artifactId} -Dversion=1.0.0-SNAPSHOT \
+    -DarchetypeGroupId=com.raycloud \
+    -DarchetypeArtifactId=raycloud-springboot-demo-archetype \
+    -DarchetypeVersion=${archetypeVersion} \
+    -DinteractiveMode=false \
+    org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate
+
+cd ${artifactId} && touch .gitignore && cd ..
+echo .idea >> ${artifactId}/.gitignore
+echo *.iml >> ${artifactId}/.gitignore
+echo */target >> ${artifactId}/.gitignore
+echo *.log >> ${artifactId}/.gitignore
+echo /**/*.log >> ${artifactId}/.gitignore
+
+echo "\
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <version>${archetypeVersion}</version>"
