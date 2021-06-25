@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//sqlmap.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Template">
+
+    <resultMap id="template" type="Template">
+        <result property="templateId" column="template_id"/>
+        <result property="templateName" column="template_name"/>
+        <result property="tableComment" column="table_comment"/>
+        <result property="selectField" column="select_field"/>
+        <result property="queryField" column="query_field"/>
+        <result property="addTime" column="add_time"/>
+        <result property="updTime" column="upd_time"/>
+        <result property="userName" column="user_name"/>
+        <result property="status" column="status"/>
+        <result property="json" column="json"/>
+    </resultMap>
+
+    <sql id="selector">
+        SELECT
+        template_id,template_name,table_comment,select_field,query_field,add_time,upd_time,user_name,status,json
+        FROM template
+    </sql>
+
+    <sql id="where">
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="templateId != null">AND template_id = #{templateId} </if>
+            <if test="templateName != null">AND template_name = #{templateName} </if>
+            <if test="tableComment != null">AND table_comment = #{tableComment} </if>
+            <if test="selectField != null">AND select_field = #{selectField} </if>
+            <if test="queryField != null">AND query_field = #{queryField} </if>
+            <if test="addTime != null">AND add_time = #{addTime} </if>
+            <if test="addTimeStart != null">
+                AND <![CDATA[ add_time >= #{addTimeStart} ]]>
+            </if>
+            <if test="addTimeEnd != null">
+                AND <![CDATA[ add_time <= #{addTimeEnd} ]]>
+            </if>
+            <if test="updTime != null">AND upd_time = #{updTime} </if>
+            <if test="updTimeStart != null">
+                AND <![CDATA[ upd_time >= #{updTimeStart} ]]>
+            </if>
+            <if test="updTimeEnd != null">
+                AND <![CDATA[ upd_time <= #{updTimeEnd} ]]>
+            </if>
+            <if test="userName != null">AND user_name = #{userName} </if>
+            <if test="status != null">AND status = #{status} </if>
+            <if test="json != null">AND json = #{json} </if>
+        </trim>
+    </sql>
+
+    <!-- 使用order by 字段要取消mybatis的预编译功能，会导致注入，需要用户把控输入输出 -->
+    <sql id="orderBy">
+        <trim prefix="ORDER BY">
+            <if test="orderFields != null">
+                <foreach item="item" collection="orderFields" separator=",">
+                    ${item.orderBy} ${item.desc}
+                </foreach>
+            </if>
+        </trim>
+    </sql>
+
+    <sql id="limit">
+        <trim prefix=" LIMIT ">
+            <if test="startRow != null">#{startRow},#{pageSize}</if>
+        </trim>
+    </sql>
+
+    <insert id="addTemplate" parameterType="template">
+        INSERT INTO template
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="templateId != null">template_id,</if>
+            <if test="templateName != null">template_name,</if>
+            <if test="tableComment != null">table_comment,</if>
+            <if test="selectField != null">select_field,</if>
+            <if test="queryField != null">query_field,</if>
+            <if test="addTime != null">add_time,</if>
+            <if test="updTime != null">upd_time,</if>
+            <if test="userName != null">user_name,</if>
+            <if test="status != null">status,</if>
+            <if test="json != null">json,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="templateId != null">#{templateId},</if>
+            <if test="templateName != null">#{templateName},</if>
+            <if test="tableComment != null">#{tableComment},</if>
+            <if test="selectField != null">#{selectField},</if>
+            <if test="queryField != null">#{queryField},</if>
+            <if test="addTime != null">#{addTime},</if>
+            <if test="updTime != null">#{updTime},</if>
+            <if test="userName != null">#{userName},</if>
+            <if test="status != null">#{status},</if>
+            <if test="json != null">#{json},</if>
+        </trim>
+    </insert>
+
+    <update id="updateTemplateByTemplateId" parameterType="template">
+        UPDATE template
+        <trim prefix="SET" prefixOverrides="," suffixOverrides=",">
+            <if test="templateId != null">template_id = #{templateId},</if>
+            <if test="templateName != null">template_name = #{templateName},</if>
+            <if test="tableComment != null">table_comment = #{tableComment},</if>
+            <if test="selectField != null">select_field = #{selectField},</if>
+            <if test="queryField != null">query_field = #{queryField},</if>
+            <if test="addTime != null">add_time = #{addTime},</if>
+            <if test="updTime != null">upd_time = #{updTime},</if>
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="json != null">json = #{json},</if>
+        </trim>
+        WHERE template_id = #{templateId}
+    </update>
+
+    <delete id="deleteTemplateByTemplateId" parameterType="hashmap">
+        DELETE FROM template WHERE template_id = #{templateId}
+    </delete>
+
+    <select id="getTemplateWithTemplateQuery" parameterType="templateQuery" resultMap="template">
+        <include refid="selector"/>
+        <include refid="where"/>
+        <include refid="orderBy"/>
+    </select>
+
+    <select id="getTemplateWithPage" parameterType="templateQuery" resultMap="template">
+        <include refid="selector"/>
+        <include refid="where"/>
+        <include refid="orderBy"/>
+        <include refid="limit"/>
+    </select>
+
+    <select id="getTemplateByTemplateId" resultMap="template" parameterType="hashmap">
+        <include refid="selector"/>
+        WHERE template_id = #{templateId}
+    </select>
+</mapper>
