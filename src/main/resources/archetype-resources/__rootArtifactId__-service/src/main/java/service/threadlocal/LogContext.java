@@ -29,15 +29,15 @@ public class LogContext extends HashMap<String, StringBuilder> {
         return LOCAL.get().get("log").toString();
     }
 
-    public LogContext fill(String log) {
+    public LogContext info(String log) {
         log = Optional.ofNullable(log).orElse("null");
         LOCAL.get().get("log").append(log).append("\n");
         return this;
     }
 
-    public LogContext fill(String format, Object... args) {
+    public LogContext info(String format, Object... args) {
         final String result = format(format, args);
-        return fill(result);
+        return info(result);
     }
 
     public static String format(String from, Object... arguments) {
