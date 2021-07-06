@@ -6,7 +6,7 @@ package ${package}.common.exception;
 /**
  * api异常
  *
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2021/05/20
  */
 public class ApiException extends RuntimeException {

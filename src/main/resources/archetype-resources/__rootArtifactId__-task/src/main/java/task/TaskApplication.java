@@ -10,7 +10,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2020/4/9 2:02 下午
  */
 @ServletComponentScan("${package}")

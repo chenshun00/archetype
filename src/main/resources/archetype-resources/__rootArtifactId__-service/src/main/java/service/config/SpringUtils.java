@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.Resource;
 
 /**
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2020/6/17 10:33 上午
  */
 @Configuration

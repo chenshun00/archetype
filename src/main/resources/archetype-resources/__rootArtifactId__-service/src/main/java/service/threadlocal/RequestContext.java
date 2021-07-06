@@ -9,11 +9,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Description: threadLocal缓存
- * 一定要回收
- * User: ouzhouyou@raycloud.com
- * Date: 16/6/8
- * Time: 上午10:52
- * Version: 1.0
  */
 public class RequestContext extends ConcurrentHashMap<String, Object> {
 

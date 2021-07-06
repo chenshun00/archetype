@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ${package}.api.Response;
 
 /**
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2020/6/17 10:33 上午
  */
 @RequestMapping("api")

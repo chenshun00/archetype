@@ -6,7 +6,7 @@ package ${package}.common.util;
 /**
  * 持有2个对象,不必要再去设置一个object了
  *
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2020/6/5 11:25 下午
  */
 public class Pair<A, B> {

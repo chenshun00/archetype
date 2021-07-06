@@ -16,7 +16,7 @@ import java.sql.SQLException;
 /**
  * 全局异常处理
  *
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2021/2/3 11:08 上午
  */
 @RestControllerAdvice

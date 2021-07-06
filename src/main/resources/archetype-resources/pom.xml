@@ -101,62 +101,6 @@
             </dependency>
 
             <dependency>
-                <groupId>com.raycloud.starter</groupId>
-                <artifactId>raycloud-memcache-boot-starter</artifactId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>com.raycloud.starter</groupId>
-                <artifactId>raycloud-datasource-boot-starter</artifactId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.raycloud</groupId>
-                <artifactId>taobao_sdk_context</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.raycloud.diamond</groupId>
-                <artifactId>diamond-client</artifactId>
-                <version>2.0.5.4.bizconfig-SNAPSHOT</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.zookeeper</groupId>
-                        <artifactId>zookeeper</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>com.raycloud</groupId>
-                <artifactId>bizlogger</artifactId>
-                <version>1.6-logback-SNAPSHOT</version>
-            </dependency>
-
-            <!--回调处理-->
-            <dependency>
-                <groupId>com.raycloud</groupId>
-                <artifactId>secret-zk-client</artifactId>
-                <version>jphy_1.2.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>com.raycloud</groupId>
-                <artifactId>secret-api-interface</artifactId>
-                <version>1.1-SNAPSHOT</version>
-            </dependency>
-            <!--db 回调-->
-            <dependency>
-                <groupId>com.raycloud</groupId>
-                <artifactId>dBPasswordCallback</artifactId>
-                <version>1.4.0-SNAPSHOT</version>
-            </dependency>
-            <dependency>
                 <groupId>com.googlecode.xmemcached</groupId>
                 <artifactId>xmemcached</artifactId>
                 <version>2.0.0</version>
@@ -168,12 +112,6 @@
                 <version>${springboot-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>com.raycloud</groupId>
-                <artifactId>commons-utils</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
             </dependency>
 
         </dependencies>

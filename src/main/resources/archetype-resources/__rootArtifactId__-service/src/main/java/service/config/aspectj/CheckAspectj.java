@@ -10,7 +10,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 /**
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2021/2/3 11:37 上午
  */
 @Aspect

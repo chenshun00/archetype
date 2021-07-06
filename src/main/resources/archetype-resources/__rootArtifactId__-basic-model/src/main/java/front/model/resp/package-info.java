@@ -4,6 +4,6 @@
 package ${package}.front.model.resp;
 
 /**
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2021/5/20 5:52 下午
  */

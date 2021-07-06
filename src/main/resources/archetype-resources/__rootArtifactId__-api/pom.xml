@@ -34,18 +34,4 @@
         </plugins>
     </build>
 
-    <!--配置私服的地址-->
-    <distributionManagement>
-        <repository>
-            <id>raycloud</id>
-            <name>Local Nexus Repository</name>
-            <url>http://maven.superboss.cc:8082/nexus/content/repositories/releases</url>
-        </repository>
-        <snapshotRepository>
-            <id>raycloud</id>
-            <name>Local Nexus Repository</name>
-            <url>http://maven.superboss.cc:8082/nexus/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
-
 </project>

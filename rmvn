@@ -3,8 +3,8 @@
 function usage() {
     echo 'usage: rmvn [options][args]'
     echo 'Options: '
-    echo ' -g,--groupId pom.xml文件的配置的  <groupId>com.raycloud</groupId>'
-    echo ' -a,--artifactId pom.xml文件的配置的  <artifactId>raycloud-springboot-demo</artifactId>'
+    echo ' -g,--groupId pom.xml文件的配置的  <groupId>com.example</groupId>'
+    echo ' -a,--artifactId pom.xml文件的配置的  <artifactId>chenshun00-springboot-demo</artifactId>'
     echo ' -v,--version pom.xml文件的配置版本  <version>1.0-SNAPSHOT</version> default(1.0-SNAPSHOT) 默认是1.0-SNAPSHOT'
 }
 
@@ -57,8 +57,8 @@ fi
 
 mvn -DgroupId=${groupId} \
     -DartifactId=${artifactId} -Dversion=1.0.0-SNAPSHOT \
-    -DarchetypeGroupId=com.raycloud \
-    -DarchetypeArtifactId=raycloud-springboot-demo-archetype \
+    -DarchetypeGroupId=io.github.chenshun00 \
+    -DarchetypeArtifactId=chenshun00-springboot-demo-archetype \
     -DarchetypeVersion=${archetypeVersion} \
     -DinteractiveMode=false \
     org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate

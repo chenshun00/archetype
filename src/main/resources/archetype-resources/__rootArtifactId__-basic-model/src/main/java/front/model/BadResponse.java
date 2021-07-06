@@ -6,7 +6,7 @@ package ${package}.front.model;
 /**
  * 坏响应
  *
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2021/05/20
  */
 public class BadResponse extends AbstractResponse {

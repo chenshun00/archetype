@@ -92,11 +92,6 @@
         <!--jdbc-->
 
         <dependency>
-            <groupId>com.raycloud.starter</groupId>
-            <artifactId>raycloud-datasource-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
         </dependency>
@@ -106,62 +101,9 @@
         </dependency>
         <!--log4j-->
 
-        <!--db 回调-->
-        <dependency>
-            <groupId>com.raycloud</groupId>
-            <artifactId>dBPasswordCallback</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>commons-logging</artifactId>
-                    <groupId>commons-logging</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>commons-io</artifactId>
-                    <groupId>commons-io</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-        </dependency>
-
-        <!--zk回调处理-->
-        <dependency>
-            <groupId>com.raycloud</groupId>
-            <artifactId>secret-zk-client</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.alibaba</groupId>
-                    <artifactId>fastjson</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.raycloud.diamond</groupId>
-                    <artifactId>diamond-client</artifactId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>log4j</artifactId>
-                    <groupId>log4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <!--diamond 配置中心-->
-        <dependency>
-            <groupId>com.raycloud.diamond</groupId>
-            <artifactId>diamond-client</artifactId>
-            <version>2.0.5.4.bizconfig-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.zookeeper</groupId>
-                    <artifactId>zookeeper</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
     </dependencies>

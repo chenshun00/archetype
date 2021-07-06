@@ -6,7 +6,7 @@ package ${package}.api;
 import java.io.Serializable;
 
 /**
- * @author luobo.cs@raycloud.com
+ * @author chenshun00@gmail.com
  * @since 2020/6/2 11:58 上午
  */
 public abstract class BaseEntity implements Serializable {
